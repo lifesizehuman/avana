@@ -1,3 +1,27 @@
-var keys = require("./key.js");
+var twitterKeys = require("./key.js");
+var request = require("request");
 
-console.log(keys);
+var command = "";
+
+for (var i = 2; i < process.argv.length; i++) {
+  command += process.argv[i] + " ";
+}
+
+var twit = require('twitter');
+
+function getTweets() {
+  if (command === "get tweets") {
+
+    twitter = require('twitter');
+    var twit = twitter(twitterKeys);
+
+  twit.get("http://api.twitter.com/1.1/statuses/user_timeline.json?count=2",
+   function(error, response, body){
+     if (!error && response.statusCode === 200) {
+       console.log(response);
+    }
+  })
+ }
+}
+
+getTweets();
