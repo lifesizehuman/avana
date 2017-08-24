@@ -1,6 +1,6 @@
 # avana
 
-A student project by Slater Combes
+A student homework assignment by Slater Combes
 
 A Language Interpretation and Recognition Iterface
 
