@@ -83,6 +83,21 @@ function getMovie() {
   })
 }
 
+function doWhatItSays() {
+  var fs = require('fs');
+
+  fs.readFile('random.txt', 'utf8', function(error, data) {
+    if (error) {
+  return console.log(error);
+}
+  console.log(data);
+
+  var dataArr = data.split(',')
+
+  console.log(dataArr);
+  })
+}
+
 if (command === "tweets") {
   getTweets();
 }
@@ -93,4 +108,8 @@ if (command === "spotify") {
 
 if (command === "movie") {
   getMovie();
+}
+
+if (command === "do-what-it-says") {
+  doWhatItSays();
 }
