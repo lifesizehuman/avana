@@ -49,7 +49,7 @@ function spotifySong() {
     if (err) {
       return console.log(err);
     }
-    // console.log(JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 2));
     console.log("Top Result")
     console.log("---------------");
     console.log("Song title: " + JSON.stringify(data.tracks.items[0].name, null , 2));
@@ -74,7 +74,7 @@ function getMovie() {
     console.log("---------------");
     console.log("iMDB Rating: " + content.imdbRating);
     console.log("---------------");
-    console.log("Rotten Tomatoes Rating: " + content.Ratings[1]);
+    console.log("Rotten Tomatoes Rating: " + JSON.stringify(content.Ratings[1].Value, null, 2));
     console.log("---------------");
     console.log("Country: " + content.Country);
     console.log("---------------");
