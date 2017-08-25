@@ -62,6 +62,6 @@ if (command === "spotify") {
   spotifySong();
 }
 
-if (command === "spotify") {
+if (command === "movie") {
   getMovie();
 }
