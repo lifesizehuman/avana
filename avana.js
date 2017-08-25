@@ -92,9 +92,13 @@ function doWhatItSays() {
   return console.log(error);
 }
 
-  var dataArr = data.split(',')
+var dataArr = data.split(',')
 
-  console.log(dataArr);
+    var x = JSON.stringify(dataArr);
+    function callMe(x) {
+        process.argv.slice(data);
+      }
+    callMe();
   })
 }
 

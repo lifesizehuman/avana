@@ -19,6 +19,7 @@
   "homepage": "https://github.com/lifesizehuman/avana#readme",
   "dependencies": {
     "api": "^0.13.5",
+    "inquirer": "^3.2.2",
     "node": "^8.3.0",
     "node-spotify-api": "^1.0.7",
     "request": "^2.81.0",
