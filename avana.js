@@ -40,18 +40,35 @@ function spotifySong() {
     if (err) {
       return console.log(err);
     }
-    console.log(JSON.stringify(data, null, 3));
+    console.log(JSON.stringify(data, null , 3));
   });
 }
 
 function getMovie() {
   var movie = process.argv[3];
 
-  var queryUrl = "http://www.omdbapi.com/?t=" + name + "&y=&plot=short&apikey=40e9cece";
+  var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=40e9cece";
 
   request(queryUrl, function(error, response, body) {
-    console.log(name + "'s" + " rating is " + JSON.parse(body).imdbRating);
-  }
+    // console.log(JSON.parse(body));
+    console.log(JSON.parse(body).Title);
+    console.log("---------------");
+    console.log(JSON.parse(body).Year);
+    console.log("---------------");
+    console.log("iMDB Rating: " + JSON.parse(body).imdbRating);
+    console.log("---------------");
+    console.log(JSON.parse(body).Ratings[1]);
+    console.log("---------------");
+    console.log(JSON.parse(body).Country);
+    console.log("---------------");
+    console.log(JSON.parse(body).Language);
+    console.log("---------------");
+    console.log(JSON.parse(body).Actors);
+    console.log("---------------");
+    console.log(JSON.parse(body).Plot);
+    console.log("---------------");
+
+  })
 }
 
 if (command === "tweets") {
