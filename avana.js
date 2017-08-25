@@ -149,21 +149,31 @@ var lyrics = [
             type: "list",
             choices: ['man', 'woman', 'cowboy'],
             message: "I'm a ",
-            name: "I'm a"
+            name: "cowboy"
         },
         {
             type: "list",
             choices: ['skateboard', 'carpet', 'a steel horse'],
             message: "on what do you ride?",
-            name: "I ride a"
+            name: "horse"
         },
         {
             type: "list",
             choices: ['dead or alive'],
             message: "I'm wanted...",
-            name: "I'm wanted"
+            name: "wanted"
         }
-  ]).then(answers => (console.log(lyrics)));
+      ])
+        .then(function(inquirerResponse) {
+    // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
+    if (inquirerResponse.cowboy === 'cowboy' && inquirerResponse.horse === 'a steel horse') {
+      console.log(lyrics);
+    }
+    else {
+      console.log("Try again");
+    }
+  })
+  // ]).then(answers => (console.log(lyrics)));
 }
 
 
