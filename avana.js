@@ -60,23 +60,25 @@ function getMovie() {
 
   var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=40e9cece";
 
+
   request(queryUrl, function(error, response, body) {
+    var content = JSON.parse(body);
     // console.log(JSON.parse(body));
-    console.log(JSON.parse(body).Title);
+    console.log("Title: " + content.Title);
     console.log("---------------");
-    console.log(JSON.parse(body).Year);
+    console.log("Year: " + content.Year);
     console.log("---------------");
-    console.log("iMDB Rating: " + JSON.parse(body).imdbRating);
+    console.log("iMDB Rating: " + content.imdbRating);
     console.log("---------------");
-    console.log(JSON.parse(body).Ratings[1]);
+    console.log("Rotten Tomatoes Rating: " + content.Ratings[1]);
     console.log("---------------");
-    console.log(JSON.parse(body).Country);
+    console.log("Country: " + content.Country);
     console.log("---------------");
-    console.log(JSON.parse(body).Language);
+    console.log("Language: " + content.Language);
     console.log("---------------");
-    console.log(JSON.parse(body).Actors);
+    console.log("Actors: " + content.Actors);
     console.log("---------------");
-    console.log(JSON.parse(body).Plot);
+    console.log("Plot: " + content.Plot);
     console.log("---------------");
   })
 }
