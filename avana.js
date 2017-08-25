@@ -132,15 +132,15 @@ inquirer.prompt([
 
 // function calls
 
-if (command === "tweets") {
+if (command === "my-tweets") {
   getTweets();
 }
 
-if (command === "spotify") {
+if (command === "spotify-this") {
   spotifySong();
 }
 
-if (command === "movie") {
+if (command === "movie-this") {
   getMovie();
 }
 
