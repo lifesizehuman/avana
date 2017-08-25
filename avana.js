@@ -149,7 +149,8 @@ if (command === "movie-this") {
 }
 
 if (command === "do-what-it-says") {
-  doWhatItSays();
+  // doWhatItSays();
+  console.log("This feature isn't enabled yet.");
 }
 
 if (command === "bon-jovie") {
