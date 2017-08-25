@@ -137,7 +137,7 @@ function bonJovi() {
 
 // function calls
 
-if (command === "tweets") {
+if (command === "tweets-of") {
     getTweets();
 } else if (command === "spotify-this") {
     spotifySong();

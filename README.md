@@ -5,17 +5,17 @@ A homework assignment by Slater Combes
 ## In order for this program to work, you must request API keys for Twitter and Spotify
 
 Commands:
-- tweets
+- tweets-of
 - spotify-this
 - movie-this
 
 
-tweets
+tweets-of
 -------------
 Description: Uses the twitter api to pull the 20 most recent tweets of any public user
 Please note that you must know the EXACT twitter handle in order to pull that user's recent tweets
 
-> Usage: ``` $ node avana.js tweets barackobama```
+> Usage: ``` $ node avana.js tweets-of barackobama```
 
 
 
