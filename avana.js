@@ -2,15 +2,7 @@ var keys = require("./key.js");
 
 var request = require("request");
 
-// var command = process.argv[2];
-
-var command = "";
-
-for (var i = 2; i < process.argv.length; i++) {
-  command += process.argv[i] + " ";
-}
-
-
+var command = process.argv[2];
 
 function getTweets() {
 
@@ -27,12 +19,9 @@ function getTweets() {
     access_token_secret: keys.twitterKeys.access_token_secret
   });
 
-  console.log(keys.twitterKeys);
-
-
   twit.get("statuses/user_timeline", params,
    function(error, tweets, response){
-     console.log(error);
+    //  console.log(error);
      if (!error) {
        for(var i = 0; i < tweets.length; i++) {
          console.log(tweets[i].text);
@@ -41,7 +30,7 @@ function getTweets() {
    })
   }
 
-if (command === "getTweets") {
+if (command === "tweets") {
 
 getTweets();
 
