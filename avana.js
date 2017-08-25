@@ -110,38 +110,15 @@ function doWhatItSays() {
 
 
 function bonJovi() {
-var lyrics = [
-  "It's all the same, only the names will change",
-  "Everyday, it seems we're wastin' away",
-"Another place where the faces are so cold",
-"I drive all night just to get back home",
-"I'm a cowboy, on a steel horse I ride",
-"I'm wanted dead or alive",
-"Wanted dead or alive",
-"Sometimes I sleep, sometimes it's not for days",
-"The people I meet always go their separate ways",
-"Sometimes you tell the day",
-"By the bottle that you drink",
-"And times when you're all alone all you do is think",
-"I'm a cowboy, on a steel horse I ride",
-"I'm wanted (wanted) dead or alive",
-"Wanted (wanted) dead or alive",
-"Oh, and I ride",
-"Oh, and I'm a cowboy, on a steel horse I ride",
-"I'm wanted dead or alive",
-"I walk these streets",
-"A loaded six-string on my back",
-"I play for keeps 'cause I might not make it back",
-"I been everywhere, still, I'm standing tall",
-"I've seen a million faces",
-"And I've rocked them all",
-"I'm a cowboy, on a steel horse I ride",
-"I'm wanted (wanted) dead or alive",
-"I'm a cowboy, I got the night on my side",
-"I'm wanted (wanted) dead or alive",
-"And I ride, dead or alive",
-"I still drive (I still drive) dead or alive",
-"Dead or alive, dead or alive, dead or alive, dead or alive"];
+
+  var fs = require('fs');
+
+  fs.readFile('lyrics.txt', 'utf8', function(error, data) {
+      if (error) {
+          return console.log(error);
+      }
+
+      var lyrics = data.split(',')
 
     var inquirer = require('inquirer');
 
@@ -165,15 +142,14 @@ var lyrics = [
         }
       ])
         .then(function(inquirerResponse) {
-    // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
     if (inquirerResponse.cowboy === 'cowboy' && inquirerResponse.horse === 'a steel horse') {
-      console.log(lyrics);
+      console.log(JSON.stringify(lyrics, null, 2));
     }
     else {
       console.log("Try again");
     }
   })
-  // ]).then(answers => (console.log(lyrics)));
+})
 }
 
 
