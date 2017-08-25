@@ -49,7 +49,6 @@ function spotifySong() {
     if (err) {
       return console.log(err);
     }
-    console.log(JSON.stringify(data, null, 2));
     console.log("Top Result")
     console.log("---------------");
     console.log("Song title: " + JSON.stringify(data.tracks.items[0].name, null , 2));
@@ -64,26 +63,25 @@ function getMovie() {
 
   var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=40e9cece";
 
-
   request(queryUrl, function(error, response, body) {
     var content = JSON.parse(body);
-    // console.log(JSON.parse(body));
-    console.log("Title: " + content.Title);
-    console.log("---------------");
-    console.log("Year: " + content.Year);
-    console.log("---------------");
-    console.log("iMDB Rating: " + content.imdbRating);
-    console.log("---------------");
-    console.log("Rotten Tomatoes Rating: " + JSON.stringify(content.Ratings[1].Value, null, 2));
-    console.log("---------------");
-    console.log("Country: " + content.Country);
-    console.log("---------------");
-    console.log("Language: " + content.Language);
-    console.log("---------------");
-    console.log("Actors: " + content.Actors);
-    console.log("---------------");
-    console.log("Plot: " + content.Plot);
-    console.log("---------------");
+    var tomatoes = JSON.stringify(content.Ratings[1].Value, null, 2);
+
+    var values = [
+      "Title: " + content.Title,
+      "Year: " + content.Year,
+      "iMDB Rating: " + content.imdbRating,
+      "Rotten Tomatoes Rating: " + tomatoes,
+      "Country: " + content.Country,
+      "Language: " + content.Language,
+      "Actors: " + content.Actors,
+      "Plot: " + content.Plot
+    ];
+
+    for (var i = 0; i < values.length; i++) {
+      console.log(values[i]);
+      console.log("---------------");
+    }
   })
 }
 
