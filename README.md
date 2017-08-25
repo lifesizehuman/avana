@@ -19,6 +19,7 @@ Please note that you must know the EXACT twitter handle in order to pull that us
 spotify-this
 -------------
 Description: Uses the node-spotify-api to pull song details
+Note: include both the song title AND the artist in the same search for a more accurate response
 
 > Usage: ``` $ node avana.js spotify-this "lady gaga just dance" ```
 
