@@ -17,6 +17,9 @@ Please note that you must know the EXACT twitter handle in order to pull that us
 
 > Usage: ``` $ node avana.js tweets barackobama```
 
+![alt text](https://github.com/lifesizehuman/avana/blob/master/assets/tweets.png)
+
+
 
 spotify-this
 -------------
@@ -25,9 +28,14 @@ Note: include both the song title AND the artist in the same search for a more a
 
 > Usage: ``` $ node avana.js spotify-this "lady gaga just dance" ```
 
+![alt text](https://github.com/lifesizehuman/avana/blob/master/assets/song.png)
+
+
 
 movie-this
 -------------
 Description: Uses the OMDB api to pull details of the requested movie
 
 > Usage: ``` $ node avana.js movie-this "inception" ```
+
+![alt text](https://github.com/lifesizehuman/avana/blob/master/assets/movie.png)
