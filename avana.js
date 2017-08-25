@@ -40,11 +40,15 @@ function spotifySong() {
     secret: keys.spotifyKeys.client_secret
   });
 
-  Spotify.search({ type: 'track', query: song, limit: 1 }, function(err, data) {
+  Spotify.search({
+    type: 'track',
+    query: song,
+    limit: 1
+  }, function(err, data) {
     if (err) {
       return console.log(err);
     }
-  console.log(JSON.stringify(data, null, 2));
+    console.log(JSON.stringify(data, null, 3));
   });
 }
 
