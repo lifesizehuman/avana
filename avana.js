@@ -5,10 +5,11 @@ var command = process.argv[2];
 
 function getTweets() {
 
+
+  var username = process.argv[3];
+  var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username + "&limit=20";
+
   var twitter = require('twitter');
-  var params = {
-    screenName: "OCMemeDad"
-  }
 
   var twit = new twitter({
     consumer_key: keys.twitterKeys.consumer_key,
@@ -17,11 +18,13 @@ function getTweets() {
     access_token_secret: keys.twitterKeys.access_token_secret
   });
 
-  twit.get("statuses/user_timeline", params, function(error, tweets, response) {
+  twit.get(twitterURL, function(error, tweets, response) {
     if (!error) {
-      for (var i = 0; i < 20; i++) {
-        console.log(tweets[i].text);
-        console.log(tweets[i].created_at);
+      for (var i = 0; i < tweets.length; i++) {
+        var tweet = tweets[i].text;
+        var creation = tweets[i].created_at;
+        console.log(tweet);
+        console.log(creation);
         console.log("----------")
       }
     }
@@ -29,8 +32,6 @@ function getTweets() {
 }
 
 function spotifySong() {
-
-  // var spotURL = "https://api.spotify.com/v1/search";
   var spotify = require('node-spotify-api');
 
   var song = process.argv[3];
@@ -134,7 +135,7 @@ inquirer.prompt([
 
 // function calls
 
-if (command === "my-tweets") {
+if (command === "tweets") {
   getTweets();
 }
 

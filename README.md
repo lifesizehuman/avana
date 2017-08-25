@@ -1,19 +1,19 @@
 # avana
 A Language Interpretation and Recognition Iterface
-
 A homework assignment by Slater Combes
 
 Commands:
-- my-tweets
+- tweets
 - spotify-this
 - movie-this
 
 
-my-tweets
+tweets
 -------------
-Description: Uses the twitter api to pull my 20 most recent tweets
+Description: Uses the twitter api to pull the 20 most recent tweets of any public user
+Please note that you must know the EXACT twitter handle in order to pull that user's recent tweets
 
-> Usage: ``` $ node avana.js my-tweets ```
+> Usage: ``` $ node avana.js tweets barackobama```
 
 
 spotify-this
