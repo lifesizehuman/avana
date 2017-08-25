@@ -24,7 +24,7 @@ function getTweets() {
          console.log(tweets[i].text);
          console.log(tweets[i].created_at);
          console.log("----------")
-       } else console.log(error);
+       }
      }
    })
   }
