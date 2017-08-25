@@ -2,6 +2,8 @@
 A Language Interpretation and Recognition Iterface
 A homework assignment by Slater Combes
 
+## In order for this program to work, you must request API keys for Twitter and Spotify
+
 Commands:
 - tweets
 - spotify-this
