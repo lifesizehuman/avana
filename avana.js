@@ -30,7 +30,7 @@ function getTweets() {
 
 function spotifySong() {
 
-  var spotURL = "https://api.spotify.com/v1/search";
+  // var spotURL = "https://api.spotify.com/v1/search";
   var spotify = require('node-spotify-api');
 
   var song = process.argv[3];
@@ -106,7 +106,7 @@ var dataArr = data.split(',')
   })
 }
 
-function bonJovie() {
+function bonJovi() {
 
   var inquirer = require('inquirer');
 
@@ -153,6 +153,6 @@ if (command === "do-what-it-says") {
   console.log("This feature isn't enabled yet.");
 }
 
-if (command === "bon-jovie") {
-  bonJovie();
+if (command === "bon-jovi") {
+  bonJovi();
 }

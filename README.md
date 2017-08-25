@@ -1,7 +1,30 @@
 # avana
+A Language Interpretation and Recognition Iterface
 
 A homework assignment by Slater Combes
 
-A Language Interpretation and Recognition Iterface
+Commands:
+- my-tweets
+- spotify-this
+- movie-this
 
-A text recognition node application that takes basic user input and responds accordingly.
+
+my-tweets
+-------------
+Description: Uses the twitter api to pull my 20 most recent tweets
+
+Usage: $ node avana.js my-tweets
+
+
+spotify-this
+-------------
+Description: Uses the node-spotify-api to pull song details
+
+Usage: $ node avana.js spotify-this "lady gaga just dance"
+
+
+movie-this
+-------------
+Description: Uses the OMDB api to pull details of the requested movie
+
+Usage: $ node avana.js movie-this "inception"
