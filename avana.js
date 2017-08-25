@@ -147,9 +147,9 @@ function bonJovi() {
     }
     else {
       console.log("Try again");
-    }
+      }
+    })
   })
-})
 }
 
 
