@@ -98,6 +98,33 @@ function doWhatItSays() {
   })
 }
 
+function bonJovie() {
+
+  var inquirer = require('inquirer');
+
+inquirer.prompt([
+  {
+    type: "list",
+    choices: ['cowboy'],
+    message: "I'm a ",
+    name: "I'm a"
+  },
+  {
+    type: "list",
+    choices: ['a steel horse'],
+    message: "on what do you ride?",
+    name: "I ride a"
+  },
+  {
+    type: "list",
+    choices: ['dead or alive'],
+    message: "I'm wanted...",
+    name: "I'm wanted"
+  }
+]).then(answers => console.log(JSON.stringify(answers, null, 2)));
+
+}
+
 
 // function calls
 
@@ -115,4 +142,8 @@ if (command === "movie") {
 
 if (command === "do-what-it-says") {
   doWhatItSays();
+}
+
+if (command === "bon-jovie") {
+  bonJovie();
 }
