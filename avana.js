@@ -40,7 +40,10 @@ function spotifySong() {
     if (err) {
       return console.log(err);
     }
-    console.log(JSON.stringify(data, null , 3));
+    console.log("Song title: " + JSON.stringify(data.tracks.items[0].name, null , 3));
+    console.log("Artist: " + JSON.stringify(data.tracks.items[0].artists[0].name, null , 3));
+    console.log("Album: " + JSON.stringify(data.tracks.items[0].album.name, null , 3));
+    console.log("Song Link: " + JSON.stringify(data.tracks.items[0].artists[1].external_urls.spotify, null , 3));
   });
 }
 

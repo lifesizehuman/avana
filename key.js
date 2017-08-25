@@ -1,4 +1,4 @@
-console.log('this is loaded');
+// console.log('this is loaded');
 
 exports.spotifyKeys = {
   client_id: "e349b10447b14620bca7fd184e904155",
