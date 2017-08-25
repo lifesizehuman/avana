@@ -34,6 +34,7 @@ function spotifySong() {
   var spotify = require('node-spotify-api');
 
   var song = process.argv[3];
+  var artist = process.argv[4];
 
   var Spotify = new spotify({
     id: keys.spotifyKeys.client_id,
@@ -43,15 +44,18 @@ function spotifySong() {
   Spotify.search({
     type: 'track',
     query: song,
-    limit: 1
+    limit: 5
   }, function(err, data) {
     if (err) {
       return console.log(err);
     }
-    console.log("Song title: " + JSON.stringify(data.tracks.items[0].name, null , 3));
-    console.log("Artist: " + JSON.stringify(data.tracks.items[0].artists[0].name, null , 3));
-    console.log("Album: " + JSON.stringify(data.tracks.items[0].album.name, null , 3));
-    console.log("Song Link: " + JSON.stringify(data.tracks.items[0].artists[1].external_urls.spotify, null , 3));
+    // console.log(JSON.stringify(data, null, 2));
+    console.log("Top Result")
+    console.log("---------------");
+    console.log("Song title: " + JSON.stringify(data.tracks.items[0].name, null , 2));
+    console.log("Artist: " + JSON.stringify(data.tracks.items[0].artists[0].name, null , 2));
+    console.log("Album: " + JSON.stringify(data.tracks.items[0].album.name, null , 2));
+    console.log("Song Link: " + JSON.stringify(data.tracks.items[0].artists[0].external_urls.spotify, null , 2));
   });
 }
 
