@@ -1,5 +1,4 @@
 var keys = require("./key.js");
-
 var request = require("request");
 
 var command = process.argv[2];
@@ -7,7 +6,6 @@ var command = process.argv[2];
 function getTweets() {
 
     var twitter = require('twitter');
-
     var params = {
     screenName: "OCMemeDad"
     }
