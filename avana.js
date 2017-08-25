@@ -10,7 +10,12 @@ function getTweets() {
     screenName: "OCMemeDad"
   }
 
-  var twit = new twitter({consumer_key: keys.twitterKeys.consumer_key, consumer_secret: keys.twitterKeys.consumer_secret, access_token_key: keys.twitterKeys.access_token_key, access_token_secret: keys.twitterKeys.access_token_secret});
+  var twit = new twitter({
+    consumer_key: keys.twitterKeys.consumer_key,
+    consumer_secret: keys.twitterKeys.consumer_secret,
+    access_token_key: keys.twitterKeys.access_token_key,
+    access_token_secret: keys.twitterKeys.access_token_secret
+  });
 
   twit.get("statuses/user_timeline", params, function(error, tweets, response) {
     if (!error) {
@@ -30,7 +35,10 @@ function spotifySong() {
 
   var song = process.argv[3];
 
-  var Spotify = new spotify({id: keys.spotifyKeys.client_id, secret: keys.spotifyKeys.client_secret});
+  var Spotify = new spotify({
+    id: keys.spotifyKeys.client_id,
+    secret: keys.spotifyKeys.client_secret
+  });
 
   Spotify.search({
     type: 'track',
@@ -70,7 +78,6 @@ function getMovie() {
     console.log("---------------");
     console.log(JSON.parse(body).Plot);
     console.log("---------------");
-
   })
 }
 
