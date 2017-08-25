@@ -28,6 +28,13 @@ function getTweets() {
   })
 }
 
+function spotifySong() {
+
+  var spotify = require("spotify");
+
+}
+
+
 if (command === "tweets") {
   getTweets();
 }
