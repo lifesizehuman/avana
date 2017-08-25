@@ -139,21 +139,12 @@ function bonJovi() {
 
 if (command === "tweets") {
     getTweets();
-}
-
-if (command === "spotify-this") {
+} else if (command === "spotify-this") {
     spotifySong();
-}
-
-if (command === "movie-this") {
+} else if (command === "movie-this") {
     getMovie();
-}
-
-if (command === "do-what-it-says") {
-    // doWhatItSays();
+} else if (command === "do-what-it-says") {
     console.log("This feature isn't enabled yet.");
-}
-
-if (command === "bon-jovi") {
+} else if (command === "bon-jovi") {
     bonJovi();
 }
