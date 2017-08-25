@@ -31,7 +31,7 @@ function getTweets() {
 function spotifySong() {
 
   var spotURL = "https://api.spotify.com/v1/search";
-  var spotify = require('spotify');
+  var spotify = require('node-spotify-api');
 
   var song = process.argv[3];
 
@@ -40,11 +40,11 @@ function spotifySong() {
     secret: keys.spotifyKeys.client_secret
   });
 
-  Spotify.search({ type: 'track', query: song }, function(err, data) {
+  Spotify.search({ type: 'track', query: song, limit: 1 }, function(err, data) {
     if (err) {
       return console.log(err);
     }
-  console.log(data);
+  console.log(JSON.stringify(data, null, 2));
   });
 }
 
