@@ -24,8 +24,7 @@ function getTweets() {
             var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&limit=20";
 
             twit.get(twitterURL, function(error, tweets, response) {
-                var handle = JSON.stringify(tweets[0].user.name, null, 2);
-                console.log("The Tweets of " + realName);
+                console.log("The Tweets of " + realName + " aka: " + handle);
                 console.log("----------");
                 if (!error) {
                     for (var i = 0; i < tweets.length; i++) {
