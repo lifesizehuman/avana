@@ -15,6 +15,7 @@ function getTweets() {
         access_token_key: keys.twitterKeys.access_token_key,
         access_token_secret: keys.twitterKeys.access_token_secret
     });
+
     twit.get(searchURL, function(error, tweets, response) {
         if (!error) {
             var handle = tweets[0].screen_name;
@@ -44,9 +45,6 @@ function spotifySong() {
     var spotify = require('node-spotify-api');
 
     var searchQuery = process.argv[3];
-
-    // var song = process.argv[3];
-    // var artist = process.argv[4];
 
     var Spotify = new spotify({
         id: keys.spotifyKeys.client_id,
