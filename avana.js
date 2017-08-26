@@ -17,15 +17,35 @@ function getTweets() {
     });
 
     twit.get(searchURL, function(error, tweets, response) {
+      // console.log(tweets);
         if (!error) {
             var handle = tweets[0].screen_name;
             var realName = tweets[0].name;
+            var followers = tweets[0].followers_count;
+            var friends = tweets[0].friends_count;
+            var tweetCount = tweets[0].statuses_count;
+
 
             var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&limit=20";
 
             twit.get(twitterURL, function(error, tweets, response) {
-                console.log("The Tweets of " + realName + " aka: " + handle);
-                console.log("----------");
+
+              var stats = [
+                "The Tweets of " + realName,
+                "----------",
+                "User Stats",
+                "----------",
+                "Username: " + handle,
+                "Total tweets: " + tweetCount,
+                "Followers: " + followers,
+                "Following: " + friends,
+                "----------",
+                "Most recent tweets",
+                "----------"
+              ];
+              for (var i = 0; i < stats.length; i++) {
+                console.log(stats[i]);
+              }
                 if (!error) {
                     for (var i = 0; i < tweets.length; i++) {
                         var tweet = tweets[i].text;
