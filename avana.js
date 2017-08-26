@@ -111,7 +111,7 @@ function doWhatItSays() {
             command = x[0].trim();
             searchQuery = x[1].trim();
 
-            commands();
+            searchQuery.commands();
 
         } else {
             commands();
@@ -157,8 +157,8 @@ function bonJovi() {
                     console.log(JSON.stringify(lyrics, null, 2));
                 } else {
                     console.log("Try again");
-                }
-            })
+            }
+        })
     })
 }
 
