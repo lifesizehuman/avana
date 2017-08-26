@@ -43,8 +43,10 @@ var command = process.argv[2];
 function spotifySong() {
     var spotify = require('node-spotify-api');
 
-    var song = process.argv[3];
-    var artist = process.argv[4];
+    var searchQuery = process.argv[3];
+
+    // var song = process.argv[3];
+    // var artist = process.argv[4];
 
     var Spotify = new spotify({
         id: keys.spotifyKeys.client_id,
@@ -53,7 +55,7 @@ function spotifySong() {
 
     Spotify.search({
         type: 'track',
-        query: song,
+        query: searchQuery,
         limit: 5
     }, function(err, data) {
         if (err) {
@@ -102,19 +104,21 @@ function doWhatItSays() {
     var fs = require('fs');
 
     fs.readFile('random.txt', 'utf8', function(error, data) {
-        if (error) {
-            return console.log(error);
-        }
+        if (!error) {
 
         var dataArr = data.split(',')
 
         var x = JSON.stringify(dataArr);
 
-        function callMe(x) {
-            process.argv.slice(data);
-        }
-        callMe();
-    })
+        command = x[0].trim();
+        searchQuery =  x[1].trim();
+        
+        commands();
+
+  } else {
+    commands();
+  }
+})
 }
 
 
@@ -164,6 +168,8 @@ function bonJovi() {
 
 // function calls
 
+function commands() {
+
 if (command === "tweets-of") {
     getTweets();
 } else if (command === "spotify-this") {
@@ -172,9 +178,11 @@ if (command === "tweets-of") {
     getMovie();
 } else if (command === "do-what-it-says") {
     doWhatItSays();
-    // console.log("This feature isn't enabled yet.");
 } else if (command === "bon-jovi") {
     bonJovi();
 } else if (command === "search-twitter") {
   searchUsers();
 }
+}
+
+commands();
