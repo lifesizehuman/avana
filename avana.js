@@ -193,7 +193,8 @@ function commands() {
     } else if (command === "movie-this") {
         getMovie();
     } else if (command === "do-what-it-says") {
-        doWhatItSays();
+        // doWhatItSays();
+        console.log("This feature isn't enabled.");
     } else if (command === "bon-jovi") {
         bonJovi();
     } else if (command === "search-twitter") {
