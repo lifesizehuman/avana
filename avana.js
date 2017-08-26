@@ -17,28 +17,11 @@ function getTweets() {
         access_token_secret: keys.twitterKeys.access_token_secret
     });
 
-    function searchUsers() {
-      var input = process.argv[3];
 
-      var searchURL = "https://api.twitter.com/1.1/users/search.json?q=" + input +"&page=1&count=3";
-
-      var twitter = require('twitter');
-
-      var twit = new twitter({
-          consumer_key: keys.twitterKeys.consumer_key,
-          consumer_secret: keys.twitterKeys.consumer_secret,
-          access_token_key: keys.twitterKeys.access_token_key,
-          access_token_secret: keys.twitterKeys.access_token_secret
-      });
-      twit.get(searchURL, function(error, tweets, response) {
-        if (!error) {
-          var handle = tweets[0].name;
-        }
-      })
-    }
     // var username = tweets[0].screen_name;
 
     var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + twitterName + "&limit=20";
+
 
     twit.get(twitterURL, function(error, tweets, response) {
       var handle = JSON.stringify(tweets[0].user.name, null, 2);
@@ -55,6 +38,30 @@ function getTweets() {
           }
         })
       }
+
+      function searchUsers() {
+        var input = process.argv[3];
+
+        var twitter = require('twitter');
+        var searchURL = "https://api.twitter.com/1.1/users/search.json?q=" + input +"&page=1&count=3";
+
+        var twit = new twitter({
+            consumer_key: keys.twitterKeys.consumer_key,
+            consumer_secret: keys.twitterKeys.consumer_secret,
+            access_token_key: keys.twitterKeys.access_token_key,
+            access_token_secret: keys.twitterKeys.access_token_secret
+        });
+        twit.get(searchURL, function(error, tweets, response) {
+          if (!error) {
+            var handle = tweets[0].screen_name;
+            var realName = tweets[0].name;
+
+            console.log(realName + "'s twitter handle is " + handle)
+          }
+        })
+      }
+
+
 
 
 function spotifySong() {
