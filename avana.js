@@ -3,29 +3,29 @@ var request = require("request");
 
 var command = process.argv[2];
 
-      function getTweets() {
-        var input = process.argv[3];
+function getTweets() {
+    var input = process.argv[3];
 
-        var twitter = require('twitter');
-        var searchURL = "https://api.twitter.com/1.1/users/search.json?q=" + input +"&page=1&count=3";
+    var twitter = require('twitter');
+    var searchURL = "https://api.twitter.com/1.1/users/search.json?q=" + input + "&page=1&count=3";
 
-        var twit = new twitter({
-            consumer_key: keys.twitterKeys.consumer_key,
-            consumer_secret: keys.twitterKeys.consumer_secret,
-            access_token_key: keys.twitterKeys.access_token_key,
-            access_token_secret: keys.twitterKeys.access_token_secret
-        });
-        twit.get(searchURL, function(error, tweets, response) {
-          if (!error) {
+    var twit = new twitter({
+        consumer_key: keys.twitterKeys.consumer_key,
+        consumer_secret: keys.twitterKeys.consumer_secret,
+        access_token_key: keys.twitterKeys.access_token_key,
+        access_token_secret: keys.twitterKeys.access_token_secret
+    });
+    twit.get(searchURL, function(error, tweets, response) {
+        if (!error) {
             var handle = tweets[0].screen_name;
             var realName = tweets[0].name;
 
             var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&limit=20";
 
             twit.get(twitterURL, function(error, tweets, response) {
-              var handle = JSON.stringify(tweets[0].user.name, null, 2);
-              console.log("The Tweets of " + realName);
-              console.log("----------");
+                var handle = JSON.stringify(tweets[0].user.name, null, 2);
+                console.log("The Tweets of " + realName);
+                console.log("----------");
                 if (!error) {
                     for (var i = 0; i < tweets.length; i++) {
                         var tweet = tweets[i].text;
@@ -33,12 +33,12 @@ var command = process.argv[2];
                         console.log(tweet);
                         console.log(creation);
                         console.log("----------");
+                    }
                 }
-              }
             })
-          }
-        })
-      }
+        }
+    })
+}
 
 function spotifySong() {
     var spotify = require('node-spotify-api');
@@ -106,63 +106,62 @@ function doWhatItSays() {
     fs.readFile('random.txt', 'utf8', function(error, data) {
         if (!error) {
 
-        var dataArr = data.split(',')
+            var dataArr = data.split(',')
 
-        var x = JSON.stringify(dataArr);
+            var x = JSON.stringify(dataArr);
 
-        command = x[0].trim();
-        searchQuery =  x[1].trim();
-        
-        commands();
+            command = x[0].trim();
+            searchQuery = x[1].trim();
 
-  } else {
-    commands();
-  }
-})
+            commands();
+
+        } else {
+            commands();
+        }
+    })
 }
 
 
 function bonJovi() {
 
-  var fs = require('fs');
+    var fs = require('fs');
 
-  fs.readFile('lyrics.txt', 'utf8', function(error, data) {
-      if (error) {
-          return console.log(error);
-      }
-
-      var lyrics = data.split(',')
-
-    var inquirer = require('inquirer');
-
-    inquirer.prompt([{
-            type: "list",
-            choices: ['man', 'woman', 'cowboy'],
-            message: "I'm a ",
-            name: "cowboy"
-        },
-        {
-            type: "list",
-            choices: ['skateboard', 'carpet', 'a steel horse'],
-            message: "on what do you ride?",
-            name: "horse"
-        },
-        {
-            type: "list",
-            choices: ['dead or alive'],
-            message: "I'm wanted...",
-            name: "wanted"
+    fs.readFile('lyrics.txt', 'utf8', function(error, data) {
+        if (error) {
+            return console.log(error);
         }
-      ])
-        .then(function(inquirerResponse) {
-    if (inquirerResponse.cowboy === 'cowboy' && inquirerResponse.horse === 'a steel horse') {
-      console.log(JSON.stringify(lyrics, null, 2));
-    }
-    else {
-      console.log("Try again");
-      }
+
+        var lyrics = data.split(',')
+
+        var inquirer = require('inquirer');
+
+        inquirer.prompt([{
+                    type: "list",
+                    choices: ['man', 'woman', 'cowboy'],
+                    message: "I'm a ",
+                    name: "cowboy"
+                },
+                {
+                    type: "list",
+                    choices: ['skateboard', 'carpet', 'a steel horse'],
+                    message: "on what do you ride?",
+                    name: "horse"
+                },
+                {
+                    type: "list",
+                    choices: ['dead or alive'],
+                    message: "I'm wanted...",
+                    name: "wanted"
+                }
+            ])
+            .then(function(inquirerResponse) {
+                if (inquirerResponse.cowboy === 'cowboy' && inquirerResponse.horse === 'a steel horse') {
+                    console.log(JSON.stringify(lyrics, null, 2));
+                } else {
+                    console.log("Try again");
+                }
+            })
     })
-  })
 }
 
 
@@ -170,19 +169,19 @@ function bonJovi() {
 
 function commands() {
 
-if (command === "tweets-of") {
-    getTweets();
-} else if (command === "spotify-this") {
-    spotifySong();
-} else if (command === "movie-this") {
-    getMovie();
-} else if (command === "do-what-it-says") {
-    doWhatItSays();
-} else if (command === "bon-jovi") {
-    bonJovi();
-} else if (command === "search-twitter") {
-  searchUsers();
-}
+    if (command === "tweets-of") {
+        getTweets();
+    } else if (command === "spotify-this") {
+        spotifySong();
+    } else if (command === "movie-this") {
+        getMovie();
+    } else if (command === "do-what-it-says") {
+        doWhatItSays();
+    } else if (command === "bon-jovi") {
+        bonJovi();
+    } else if (command === "search-twitter") {
+        searchUsers();
+    }
 }
 
 commands();
