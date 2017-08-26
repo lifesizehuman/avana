@@ -3,43 +3,7 @@ var request = require("request");
 
 var command = process.argv[2];
 
-function getTweets() {
-
-
-    var twitterName = process.argv[3];
-
-    var twitter = require('twitter');
-
-    var twit = new twitter({
-        consumer_key: keys.twitterKeys.consumer_key,
-        consumer_secret: keys.twitterKeys.consumer_secret,
-        access_token_key: keys.twitterKeys.access_token_key,
-        access_token_secret: keys.twitterKeys.access_token_secret
-    });
-
-
-    // var username = tweets[0].screen_name;
-
-    var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + twitterName + "&limit=20";
-
-
-    twit.get(twitterURL, function(error, tweets, response) {
-      var handle = JSON.stringify(tweets[0].user.name, null, 2);
-      console.log("The Tweets of " + handle);
-      console.log("----------");
-        if (!error) {
-            for (var i = 0; i < tweets.length; i++) {
-                var tweet = tweets[i].text;
-                var creation = tweets[i].created_at;
-                console.log(tweet);
-                console.log(creation);
-                console.log("----------");
-            }
-          }
-        })
-      }
-
-      function searchUsers() {
+      function getTweets() {
         var input = process.argv[3];
 
         var twitter = require('twitter');
@@ -56,13 +20,25 @@ function getTweets() {
             var handle = tweets[0].screen_name;
             var realName = tweets[0].name;
 
-            console.log(realName + "'s twitter handle is " + handle)
+            var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&limit=20";
+
+            twit.get(twitterURL, function(error, tweets, response) {
+              var handle = JSON.stringify(tweets[0].user.name, null, 2);
+              console.log("The Tweets of " + realName);
+              console.log("----------");
+                if (!error) {
+                    for (var i = 0; i < tweets.length; i++) {
+                        var tweet = tweets[i].text;
+                        var creation = tweets[i].created_at;
+                        console.log(tweet);
+                        console.log(creation);
+                        console.log("----------");
+                }
+              }
+            })
           }
         })
       }
-
-
-
 
 function spotifySong() {
     var spotify = require('node-spotify-api');
