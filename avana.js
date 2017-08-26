@@ -5,10 +5,8 @@ var command = process.argv[2];
 
 function getTweets() {
 
-    var username = process.argv[3];
-    var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username
-     + "&limit=1"
-     ;
+
+    var twitterName = process.argv[3];
 
     var twitter = require('twitter');
 
@@ -19,9 +17,32 @@ function getTweets() {
         access_token_secret: keys.twitterKeys.access_token_secret
     });
 
+    function searchUsers() {
+      var input = process.argv[3];
+
+      var searchURL = "https://api.twitter.com/1.1/users/search.json?q=" + input +"&page=1&count=3";
+
+      var twitter = require('twitter');
+
+      var twit = new twitter({
+          consumer_key: keys.twitterKeys.consumer_key,
+          consumer_secret: keys.twitterKeys.consumer_secret,
+          access_token_key: keys.twitterKeys.access_token_key,
+          access_token_secret: keys.twitterKeys.access_token_secret
+      });
+      twit.get(searchURL, function(error, tweets, response) {
+        if (!error) {
+          var handle = tweets[0].name;
+        }
+      })
+    }
+    // var username = tweets[0].screen_name;
+
+    var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + twitterName + "&limit=20";
+
     twit.get(twitterURL, function(error, tweets, response) {
-      var user = JSON.stringify(tweets[0].user.name, null, 2);
-      console.log("The Tweets of " + user);
+      var handle = JSON.stringify(tweets[0].user.name, null, 2);
+      console.log("The Tweets of " + handle);
       console.log("----------");
         if (!error) {
             for (var i = 0; i < tweets.length; i++) {
@@ -31,9 +52,9 @@ function getTweets() {
                 console.log(creation);
                 console.log("----------");
             }
-        }
-    })
-}
+          }
+        })
+      }
 
 
 function spotifySong() {
@@ -171,4 +192,6 @@ if (command === "tweets-of") {
     // console.log("This feature isn't enabled yet.");
 } else if (command === "bon-jovi") {
     bonJovi();
+} else if (command === "search-twitter") {
+  searchUsers();
 }
