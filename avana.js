@@ -6,7 +6,9 @@ var command = process.argv[2];
 function getTweets() {
 
     var username = process.argv[3];
-    var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username + "&limit=20";
+    var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + username
+     + "&limit=1"
+     ;
 
     var twitter = require('twitter');
 
@@ -18,13 +20,16 @@ function getTweets() {
     });
 
     twit.get(twitterURL, function(error, tweets, response) {
+      var user = JSON.stringify(tweets[0].user.name, null, 2);
+      console.log("The Tweets of " + user);
+      console.log("----------");
         if (!error) {
             for (var i = 0; i < tweets.length; i++) {
                 var tweet = tweets[i].text;
                 var creation = tweets[i].created_at;
                 console.log(tweet);
                 console.log(creation);
-                console.log("----------")
+                console.log("----------");
             }
         }
     })
