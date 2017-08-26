@@ -167,7 +167,8 @@ if (command === "tweets-of") {
 } else if (command === "movie-this") {
     getMovie();
 } else if (command === "do-what-it-says") {
-    console.log("This feature isn't enabled yet.");
+    doWhatItSays();
+    // console.log("This feature isn't enabled yet.");
 } else if (command === "bon-jovi") {
     bonJovi();
 }
