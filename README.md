@@ -12,10 +12,12 @@ Commands:
 
 tweets-of
 -------------
-Description: Uses the twitter api to pull the 20 most recent tweets of any public user
-Please note that you must know the EXACT twitter handle in order to pull that user's recent tweets
+Description: Uses the twitter api to pull the 20 most recent tweets of any public user. You can search by real name or by user name.
 
-> Usage: ``` $ node avana.js tweets-of barackobama```
+> Usage:
+- ``` $ node avana.js tweets-of barackobama```
+- ``` $ node avana.js tweets-of "lady gaga" ```
+
 
 
 
