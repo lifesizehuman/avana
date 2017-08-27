@@ -32,6 +32,7 @@ Note: include both the song title AND the artist in the same search for a more a
 
 movie-this
 -------------
-Description: Uses the OMDB api to pull details of the requested movie
+Description: Uses the OMDB api to pull details of the requested movie.
+Note: the exact movie title must be provided in your search query
 
 > Usage: ``` $ node avana.js movie-this "inception" ```
