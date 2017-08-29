@@ -141,12 +141,16 @@ function bonJovi() {
     inquirer.prompt([
       {
         type: "list",
-        choices: ["man", "woman", "cowboy"],
+        choices: [
+          "man", "woman", "cowboy"
+        ],
         message: "I'm a ",
         name: "cowboy"
       }, {
         type: "list",
-        choices: ["skateboard", "carpet", "a steel horse"],
+        choices: [
+          "skateboard", "carpet", "a steel horse"
+        ],
         message: "on what do you ride?",
         name: "horse"
       }, {
