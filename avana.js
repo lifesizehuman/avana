@@ -88,7 +88,7 @@ function getMovie () {
 
   var queryUrl = 'http://www.omdbapi.com/?t=' + movie + '&y=&plot=short&apikey=40e9cece'
 
-  request(queryUrl, function (error, response, body) {
+  request(queryUrl, function (response, body) {
     var content = JSON.parse(body)
     var tomatoes = JSON.stringify(content.Ratings[1].Value, null, 2)
 
