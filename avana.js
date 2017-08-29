@@ -2,7 +2,7 @@ var keys = require('./key.js')
 var request = require('request')
 var command = process.argv[2]
 
-function getTweets () {
+function getTweets() {
   var input = process.argv[3]
 
   var Twitter = require('twitter')
@@ -15,7 +15,7 @@ function getTweets () {
     access_token_secret: keys.twitterKeys.access_token_secret
   })
 
-  twit.get(searchURL, function (error, tweets, response) {
+  twit.get(searchURL, function(error, tweets, response) {
     if (!error) {
       var handle = tweets[0].screen_name
       var realName = tweets[0].name
@@ -25,7 +25,7 @@ function getTweets () {
 
       var twitterURL = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + handle + '&limit=20'
 
-      twit.get(twitterURL, function (error, tweets, response) {
+      twit.get(twitterURL, function(error, tweets, response) {
         var stats = [
           'The Tweets of ' + realName,
           '----------',
@@ -56,7 +56,7 @@ function getTweets () {
   })
 }
 
-function spotifySong () {
+function spotifySong() {
   var Spotify = require('node-spotify-api')
 
   var searchQuery = process.argv[3]
@@ -70,7 +70,7 @@ function spotifySong () {
     type: 'track',
     query: searchQuery,
     limit: 5
-  }, function (err, data) {
+  }, function(err, data) {
     if (err) {
       return console.log(err)
     }
@@ -83,12 +83,12 @@ function spotifySong () {
   })
 }
 
-function getMovie () {
+function getMovie() {
   var movie = process.argv[3]
 
   var queryUrl = 'http://www.omdbapi.com/?t=' + movie + '&y=&plot=short&apikey=40e9cece'
 
-  request(queryUrl, function (response, body) {
+  request(queryUrl, function(response, body) {
     var content = JSON.parse(body)
     var tomatoes = JSON.stringify(content.Ratings[1].Value, null, 2)
 
@@ -129,10 +129,10 @@ function getMovie () {
 //   })
 // }
 
-function bonJovi () {
+function bonJovi() {
   var fs = require('fs')
 
-  fs.readFile('lyrics.txt', 'utf8', function (error, data) {
+  fs.readFile('lyrics.txt', 'utf8', function(error, data) {
     if (error) {
       return console.log(error)
     }
@@ -162,7 +162,7 @@ function bonJovi () {
         message: 'I am wanted...',
         name: 'wanted'
       }
-    ]).then(function (inquirerResponse) {
+    ]).then(function(inquirerResponse) {
       if (inquirerResponse.cowboy === 'cowboy' && inquirerResponse.horse === 'a steel horse') {
         console.log(JSON.stringify(lyrics, null, 2))
       } else {
@@ -174,7 +174,7 @@ function bonJovi () {
 
 // function calls
 
-function commands () {
+function commands() {
   if (command === 'tweets-of') {
     getTweets()
   } else if (command === 'spotify-this') {
