@@ -61,10 +61,7 @@ function spotifySong() {
 
   var searchQuery = process.argv[3];
 
-  var Spot = new Spotify({
-    id: keys.spotifyKeys.client_id,
-    secret: keys.spotifyKeys.client_secret
-  });
+  var Spot = new Spotify({id: keys.spotifyKeys.client_id, secret: keys.spotifyKeys.client_secret});
 
   Spot.search({
     type: 'track',
@@ -144,16 +141,12 @@ function bonJovi() {
     inquirer.prompt([
       {
         type: 'list',
-        choices: [
-          'man', 'woman', 'cowboy'
-        ],
+        choices: ['man', 'woman', 'cowboy'],
         message: 'I am a ',
         name: 'cowboy'
       }, {
         type: 'list',
-        choices: [
-          'skateboard', 'carpet', 'a steel horse'
-        ],
+        choices: ['skateboard', 'carpet', 'a steel horse'],
         message: 'on what do you ride?',
         name: 'horse'
       }, {
