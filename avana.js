@@ -17,14 +17,12 @@ function getTweets() {
     });
 
     twit.get(searchURL, function(error, tweets, response) {
-      // console.log(tweets);
         if (!error) {
             var handle = tweets[0].screen_name;
             var realName = tweets[0].name;
             var followers = tweets[0].followers_count;
             var friends = tweets[0].friends_count;
             var tweetCount = tweets[0].statuses_count;
-
 
             var twitterURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" + handle + "&limit=20";
 
@@ -123,7 +121,7 @@ function doWhatItSays() {
     fs.readFile('random.txt', 'utf8', function(error, data) {
         if (!error) {
 
-            var dataArr = data.split(',')
+            var dataArr = data.split(',');
 
             var x = JSON.stringify(dataArr);
 
@@ -131,7 +129,7 @@ function doWhatItSays() {
             searchQuery = x[1].trim();
 
             searchQuery.commands();
-
+            
         } else {
             commands();
         }
