@@ -1,6 +1,6 @@
 # avana
 A Language Interpretation and Recognition Iterface
-A homework assignment by Slater Combes
+A homework assignment by Slater Combes, (c) 2017
 
 ## In order for this program to work, you must request API keys for Twitter and Spotify
 
