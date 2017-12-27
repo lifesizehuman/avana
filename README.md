@@ -45,4 +45,26 @@ movie-this
 Description: Uses the OMDB api to pull details of the requested movie.
 Note: the exact movie title must be provided in your search query
 
-> Usage: ``` $ node avana.js movie-this "inception" ```
+> Usage: 
+- ``` $ node avana.js movie-this "inception" ```
+
+> Returns:
+```
+Title: Inception
+---------------
+Year: 2010
+---------------
+iMDB Rating: 8.8
+---------------
+Rotten Tomatoes Rating: "86%"
+---------------
+Country: USA, UK
+---------------
+Language: English, Japanese, French
+---------------
+Actors: Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy
+---------------
+Plot: A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.
+---------------
+```
+
