@@ -27,6 +27,13 @@ Description: Uses the node-spotify-api to pull song details
 Note: include both the song title AND the artist in the same search for a more accurate response
 
 > Usage: ``` $ node avana.js spotify-this "lady gaga just dance" ```
+> Returns: 
+``` Top Result
+---------------
+Song Title: "Just Dance"
+Artist: "Lady Gaga"
+Album: "The Fame"
+Song Link: "https://open.spotify.com/artist/1HY2Jd0NmPuamShAr6KMms" ```
 
 
 
